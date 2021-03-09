@@ -7,10 +7,10 @@ class TestGithubAPI567(unittest.TestCase):
         self.assertEqual(githubAPI('konglingwengit'), True)
 
     def testNonWorkingUserInput1(self):
-        self.assertEqual(githubAPI(000), 'Github user not correct', 'only strings are allowed')
+        self.assertEqual(githubAPI(44343), 'Github user not correct', 'only strings are allowed')
 
     def testNonWorkingUserInput2(self):
-        self.assertEqual(githubAPI("HIIIII"), False)
+        self.assertEqual(githubAPI("HlooI"), False)
 
     def testNonWorkingUserInput3(self):
         self.assertEqual(githubAPI(11), 'Github user not correct', 'only strings are allowed')

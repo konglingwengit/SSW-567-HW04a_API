@@ -22,5 +22,4 @@ def githubAPI(username):
 
 if __name__ == "__main__":
     response = input("Please input the Github Username: ")
-    response = "konglingwengit"
     githubAPI(response)
