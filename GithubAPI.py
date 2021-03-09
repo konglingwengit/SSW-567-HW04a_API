@@ -6,7 +6,7 @@ def githubAPI(username):
     """:returns boolean"""
     try:
         result = requests.get("https://api.github.com/users/" + username + "/repos")
-    except (TypeError):
+    except TypeError:
         return "Github user not correct"
 
     result = result.json()
