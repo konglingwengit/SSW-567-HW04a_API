@@ -1,0 +1,3 @@
+1. creating github API function was required to test code.
+2. data formating was little ticky other than that it was easy.
+3. testing username input range was neccessary cause it can never be numbers.
