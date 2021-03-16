@@ -1,24 +1,24 @@
 import unittest
 from GithubAPI import githubAPI
+from unittest.mock import MagicMock as Mock, patch
 
 
 class TestGithubAPI567(unittest.TestCase):
-    def testWorkingUserInput(self):
-        self.assertEqual(githubAPI('konglingwengit'), True)
+    @patch('GithubAPI.githubAPI')
+    def testWorkingUserInputMock(self, mockrequirements):
+        mockrequirements.return_value.json.return_value = ('konglingwengit')
+        res = githubAPI("konglingwengit")
+        self.assertEqual(res, True)
 
-    def testNonWorkingUserInput1(self):
-        self.assertEqual(githubAPI(44343), 'Github user not correct', 'only strings are allowed')
+    def TestWithErrorUserInputMock1(self):
+        self.assertEqual(githubAPI(000), 'Github user not correct',
+                         'only strings are allowed')
 
-    def testNonWorkingUserInput2(self):
-        self.assertEqual(githubAPI("HlooI"), False)
-
-    def testNonWorkingUserInput3(self):
-        self.assertEqual(githubAPI(11), 'Github user not correct', 'only strings are allowed')
-
-    def testNonWorkingUserInput4(self):
-        self.assertEqual(githubAPI(9999), 'Github user not correct', 'only strings are allowed')
+    def TestWithErrorUserInputMock2(self):
+        self.assertEqual(githubAPI(9999), 'Github user not correct',
+                         'only strings are allowed')
 
 
 if __name__ == "__main__":
-    print('Testing...')
+    print('Testing all the cases')
     unittest.main()
